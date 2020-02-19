@@ -14,4 +14,4 @@ class TestMySQL(TestCase):
 
     def test_get_from_sql(self):
         actual = self.driver.get_from_sql("select id, name from users")
-        self.assertEqual(actual, ((1, 'test'),))
+        self.assertEqual(((1, 'test'),), actual)
