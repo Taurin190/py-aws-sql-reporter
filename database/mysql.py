@@ -1,4 +1,4 @@
-from database.database import DB
+from database.db import DB
 import MySQLdb
 
 
