@@ -19,5 +19,5 @@ class TestSQLHandler(TestCase):
         config = {"sql_path": "./sql"}
         self.driver = SQLHandler(config)
         actual = self.driver.exist_sql_file("test3.sql")
-        self.assertTrue(actual)
+        self.assertFalse(actual)
 

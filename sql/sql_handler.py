@@ -13,4 +13,4 @@ class SQLHandler:
         return sql_files
 
     def exist_sql_file(self, file_path):
-        return not os.path.exists(self.sql_path + file_path)
+        return os.path.exists(self.sql_path + "/" + file_path)
