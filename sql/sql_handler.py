@@ -9,4 +9,5 @@ class SQLHandler:
 
     def get_all_files(self):
         files = os.listdir(self.sql_path)
-        return files
+        sql_files = list(filter(lambda x: x.endswith(".sql"), files))
+        return sql_files
