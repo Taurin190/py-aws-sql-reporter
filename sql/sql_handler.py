@@ -11,3 +11,6 @@ class SQLHandler:
         files = os.listdir(self.sql_path)
         sql_files = list(filter(lambda x: x.endswith(".sql"), files))
         return sql_files
+
+    def exist_sql_file(self, file_path):
+        return not os.path.exists(self.sql_path + file_path)
