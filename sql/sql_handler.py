@@ -3,7 +3,7 @@ import os
 
 class SQLHandler:
     def __init__(self, config=None):
-        self.sql_path = "./sql/"
+        self.sql_path = "./sql"
         if config and "sql_path" in config.keys():
             self.sql_path = config["sql_path"]
 

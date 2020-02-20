@@ -1,6 +1,7 @@
 # -*- coding:utf-8 -*-
 import sys
 import bin.usage as u
+from bin.retrieve import Retriever
 
 
 def main(args):
@@ -8,11 +9,15 @@ def main(args):
         u.usage()
         exit(1)
     if args[1] == 'retrieve':
-        u.usage()
+        r = Retriever()
+        r.get_all()
     elif args[1] == 'compression':
         u.usage()
     elif args[1] == 'send':
         u.usage()
+    else:
+        u.usage()
+        exit(1)
     print("hello world")
 
 

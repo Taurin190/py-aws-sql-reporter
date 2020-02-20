@@ -1,15 +1,15 @@
-import os
+from sql.sql_handler import SQLHandler
 
 
 class Retriever:
-    def __init__(self, config):
-        self.config = config
+    def __init__(self, config=None):
+        self.sql_handler = SQLHandler(config)
 
     def get_all(self):
-        print("all")
+        files = self.sql_handler.get_all_files()
+        for file in files:
+            self.get(file)
 
     def get(self, sql):
-        if not os.path.exists('sql/' + sql):
-            print("Error: {} doesn't exist", sql)
-            exit(1)
-        print(sql)
+        if self.sql_handler.exist_sql_file(sql):
+            print(sql)
