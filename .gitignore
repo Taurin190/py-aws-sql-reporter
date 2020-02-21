@@ -133,3 +133,7 @@ dmypy.json
 
 # hide application config
 config/app.conf
+
+# ignore tmp directory
+tmp/*
+!tmp/.gitkeep
