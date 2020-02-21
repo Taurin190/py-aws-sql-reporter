@@ -21,7 +21,6 @@ def main(args):
     else:
         u.usage()
         exit(1)
-    print("hello world")
 
 
 if __name__ == '__main__':
