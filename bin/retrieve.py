@@ -18,5 +18,5 @@ class Retriever:
         sql = self.sql_handler.get_sql_contents(sql_file)
         print("SQL: " + sql)
         query_result = self.db.get_from_sql(sql)
-        print("Result: " + query_result)
+        print("Result: " + str(query_result))
 
