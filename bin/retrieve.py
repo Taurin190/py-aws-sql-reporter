@@ -5,7 +5,7 @@ from database.mysql import MySQL
 class Retriever:
     def __init__(self, config=None):
         self.sql_handler = SQLHandler(config)
-        self.db = MySQL(config)
+        self.db = MySQL(config['database'])
 
     def get_all(self):
         files = self.sql_handler.get_all_files()
@@ -14,9 +14,9 @@ class Retriever:
 
     def get(self, sql_file):
         if not self.sql_handler.exist_sql_file(sql_file):
-            exit(1)
+            return
         sql = self.sql_handler.get_sql_contents(sql_file)
-        print(sql)
+        print("SQL: " + sql)
         query_result = self.db.get_from_sql(sql)
-        print(query_result)
+        print("Result: " + query_result)
 
