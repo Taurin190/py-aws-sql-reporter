@@ -16,4 +16,4 @@ class MySQL(DB):
 
     def get_from_sql(self, sql):
         self.cursor.execute(sql)
-        return self.cursor.fetchall()
+        return self.cursor.description, self.cursor.fetchall()

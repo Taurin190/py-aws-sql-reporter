@@ -13,5 +13,7 @@ class TestMySQL(TestCase):
         self.driver = MySQL(config)
 
     def test_get_from_sql(self):
-        actual = self.driver.get_from_sql("select id, name from users")
-        self.assertEqual(((1, 'test'),), actual)
+        actual_header, actual = self.driver.get_from_sql("select id, name from users")
+        self.assertEqual("id", actual_header[0][0])
+        self.assertEqual("name", actual_header[1][0])
+        self.assertEqual((((1, 'test'),)), actual)
