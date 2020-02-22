@@ -32,5 +32,10 @@ class Retriever:
         print("SQL: " + sql)
         header, query_result = self.db.get_from_sql(sql)
         print("Result: " + str(query_result))
-        file_path = "./tmp/" + self.directory_name + "/" + sql_file[:-4]
+        file_path = self._get_file_path(sql_file)
         StoreExcel.create_sheet_with_result(file_path, header, query_result)
+
+    def _get_file_path(self, sql_file_name):
+        dt = datetime.datetime.now()
+        date_postfix = dt.strftime('%Y%m%d')
+        return "./tmp/{}/{}_{}".format(self.directory_name, sql_file_name[:-4], date_postfix)
