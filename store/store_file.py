@@ -1,3 +1,5 @@
+import os
+
 
 class StoreFile:
 
@@ -11,6 +13,10 @@ class StoreFile:
 
     def get_file_from_tmp(self, file_path):
         return StoreFile.get_file(self.tmp_path + '/' + file_path)
+
+    @staticmethod
+    def get_all_file_list(file_path):
+        return os.listdir(file_path)
 
     @staticmethod
     def store(file_path, text):
