@@ -137,3 +137,7 @@ config/app.conf
 # ignore tmp directory
 tmp/*
 !tmp/.gitkeep
+
+# ignore sql files except sample.sql
+sql/*.sql
+!sql/sample.sql
