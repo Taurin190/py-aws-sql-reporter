@@ -3,9 +3,9 @@ from setuptools import setup
 setup(
     name="sql-reporter",
     version="0.0.1",
-    install_requires=["openpyxl", "MySQL-Python", "boto3"],
+    install_requires=["openpyxl", "mysqlclient", "boto3"],
     extras_require={
-        "develop": ["openpyxl", "MySQL-Python", "boto3"]
+        "develop": ["openpyxl", "mysqlclient", "boto3"]
     },
     entry_points={
         "console_scripts": [
