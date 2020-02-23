@@ -11,7 +11,7 @@ class Retriever:
         self.sql_handler = SQLHandler(config)
         self.db = MySQL(config['database'])
         dt = datetime.datetime.now()
-        self.directory_name = dt.strftime('%Y%m%d%H%M%S')
+        self.directory_name = dt.strftime('%Y%m%d')
         os.makedirs("./tmp/" + self.directory_name)
 
     def __del__(self):
