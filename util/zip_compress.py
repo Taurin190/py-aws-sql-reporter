@@ -1,5 +1,5 @@
 import os
-import zipfile
+import shutil
 from util.store_file import StoreFile
 
 
@@ -12,10 +12,9 @@ class ZipCompress:
     def compress_in_tmp_directory(self):
         files = StoreFile.get_all_file_list(self.tmp_path)
         directory_list = self._get_all_directories(self.tmp_path, files)
-        zip_file_list = self._get_all_zip_files(files)
+
         for directory in directory_list:
-            if directory in zip_file_list:
-                print(directory)
+            shutil.make_archive(self.tmp_path + '/' + directory, 'zip', root_dir=self.tmp_path + '/' + directory)
 
     @staticmethod
     def _get_all_directories(directory_path, files):
