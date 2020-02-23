@@ -17,7 +17,7 @@ def main(args):
     elif args[1] == 'compress':
         Compress(config).exec()
     elif args[1] == 'send':
-        u.usage_short()
+        u.usage()
     elif args[1] == 'all':
         Retriever(config).get_all()
         Compress(config).exec()
