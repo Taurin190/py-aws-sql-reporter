@@ -13,13 +13,14 @@ def main(args):
         u.usage()
         exit(1)
     if args[1] == 'retrieve':
-        r = Retriever(config)
-        r.get_all()
+        Retriever(config).get_all()
     elif args[1] == 'compress':
-        z = Compress(config)
-        z.exec()
+        Compress(config).exec()
     elif args[1] == 'send':
         u.usage()
+    elif args[1] == 'all':
+        Retriever(config).get_all()
+        Compress(config).exec()
     else:
         u.usage()
         exit(1)
