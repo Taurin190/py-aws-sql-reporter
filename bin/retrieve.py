@@ -4,6 +4,7 @@ from sql.sql_handler import SQLHandler
 from database.mysql import MySQL
 from util.store_file import StoreFile
 from util.store_excel import StoreExcel
+import config.format as f
 
 
 class Retriever:
@@ -11,7 +12,7 @@ class Retriever:
         self.sql_handler = SQLHandler(config)
         self.db = MySQL(config['database'])
         dt = datetime.datetime.now()
-        self.directory_name = dt.strftime('%Y%m%d')
+        self.directory_name = dt.strftime(f.OUTPUT_DIRECTORY_DATE)
         os.makedirs("./tmp/" + self.directory_name)
 
     def __del__(self):
@@ -37,5 +38,5 @@ class Retriever:
 
     def _get_file_path(self, sql_file_name):
         dt = datetime.datetime.now()
-        date_postfix = dt.strftime('%Y%m%d')
+        date_postfix = dt.strftime(f.OUTPUT_FILE_DATE_POSTFIX)
         return "./tmp/{}/{}_{}".format(self.directory_name, sql_file_name[:-4], date_postfix)
