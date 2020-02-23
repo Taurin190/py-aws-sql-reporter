@@ -4,6 +4,7 @@ import configparser
 import bin.usage as u
 from bin.retrieve import Retriever
 from bin.compress import Compress
+from bin.sender import Sender
 
 
 def main(args):
@@ -17,7 +18,7 @@ def main(args):
     elif args[1] == 'compress':
         Compress(config).exec()
     elif args[1] == 'send':
-        u.usage()
+        Sender(config['mail']).send()
     elif args[1] == 'all':
         Retriever(config).get_all()
         Compress(config).exec()
