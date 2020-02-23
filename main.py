@@ -3,6 +3,7 @@ import sys
 import configparser
 import bin.usage as u
 from bin.retrieve import Retriever
+from bin.compress import Compress
 
 
 def main(args):
@@ -14,8 +15,9 @@ def main(args):
     if args[1] == 'retrieve':
         r = Retriever(config)
         r.get_all()
-    elif args[1] == 'compression':
-        u.usage()
+    elif args[1] == 'compress':
+        z = Compress(config)
+        z.exec()
     elif args[1] == 'send':
         u.usage()
     else:
