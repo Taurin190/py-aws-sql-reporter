@@ -17,10 +17,12 @@ def main(args):
     elif args[1] == 'compress':
         Compress(config).exec()
     elif args[1] == 'send':
-        u.usage()
+        u.usage_short()
     elif args[1] == 'all':
         Retriever(config).get_all()
         Compress(config).exec()
+    elif args[1] == '--help' or args[1] == 'help':
+        u.usage('long')
     else:
         u.usage()
         exit(1)
