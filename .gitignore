@@ -141,3 +141,6 @@ tmp/*
 # ignore sql files except sample.sql
 sql/*.sql
 !sql/sample.sql
+
+# actual mail body
+config/mail.py
