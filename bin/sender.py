@@ -1,4 +1,4 @@
-from util.ses_sender import SESSender
+from service.ses_sender import SESSender
 
 
 class Sender:

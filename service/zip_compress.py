@@ -1,6 +1,6 @@
 import os
 import shutil
-from util.store_file import StoreFile
+from service.store_file import StoreFile
 
 
 class ZipCompress:

@@ -1,4 +1,4 @@
-from util.zip_compress import ZipCompress
+from service.zip_compress import ZipCompress
 
 
 class Compress:
