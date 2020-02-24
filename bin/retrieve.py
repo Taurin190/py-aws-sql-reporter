@@ -2,7 +2,7 @@ import os
 import datetime
 from sql.sql_handler import SQLHandler
 from database.mysql import MySQL
-from service.store_file import StoreFile
+from service.file_manager import FileManager
 from service.store_excel import StoreExcel
 import config.format as f
 
@@ -17,7 +17,7 @@ class Retriever:
 
     def __del__(self):
         # delete empty directory
-        file_list = StoreFile.get_all_file_list("./tmp/" + self.directory_name)
+        file_list = FileManager.get_all_file_list("./tmp/" + self.directory_name)
         if len(file_list) == 0:
             os.rmdir("./tmp/" + self.directory_name)
 

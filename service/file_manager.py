@@ -1,7 +1,7 @@
 import os
 
 
-class StoreFile:
+class FileManager:
 
     def __init__(self, config=None):
         self.tmp_path = "./tmp"
@@ -9,10 +9,10 @@ class StoreFile:
             self.tmp_path = config["tmp_path"]
 
     def store_file_on_tmp(self, file_name, text):
-        return StoreFile.store(self.tmp_path + '/' + file_name, text)
+        return FileManager.store(self.tmp_path + '/' + file_name, text)
 
     def get_file_from_tmp(self, file_path):
-        return StoreFile.get_file(self.tmp_path + '/' + file_path)
+        return FileManager.get_file(self.tmp_path + '/' + file_path)
 
     @staticmethod
     def get_all_file_list(file_path):
