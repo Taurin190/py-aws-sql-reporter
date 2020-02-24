@@ -2,7 +2,7 @@ import openpyxl
 import re
 
 
-class StoreExcel:
+class ExcelWriter:
     def __init__(self, config=None):
         self.tmp_path = "./tmp"
         if config and "tmp_path" in config.keys():
@@ -26,7 +26,7 @@ class StoreExcel:
             ws.cell(column=i+1, row=1).value = header[i][0]
         for i in range(len(result)):
             for j in range(len(result[0])):
-                ws.cell(column=j+1, row=i+2).value = StoreExcel.illegal_char_remover(result[i][j])
+                ws.cell(column=j+1, row=i+2).value = ExcelWriter.illegal_char_remover(result[i][j])
         wb.save(name)
 
     @staticmethod

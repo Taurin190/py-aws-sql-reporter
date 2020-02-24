@@ -3,7 +3,7 @@ import datetime
 from sql.sql_handler import SQLHandler
 from database.mysql import MySQL
 from service.file_manager import FileManager
-from service.store_excel import StoreExcel
+from service.excel_writer import ExcelWriter
 import config.format as f
 
 
@@ -34,7 +34,7 @@ class Retriever:
         header, query_result = self.db.get_from_sql(sql)
         print("Result: " + str(query_result))
         file_path = self._get_file_path(sql_file)
-        StoreExcel.create_sheet_with_result(file_path, header, query_result)
+        ExcelWriter.create_sheet_with_result(file_path, header, query_result)
 
     def _get_file_path(self, sql_file_name):
         dt = datetime.datetime.now()
