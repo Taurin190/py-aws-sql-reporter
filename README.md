@@ -5,11 +5,13 @@ AWS上にあるRDSのデータを与えられたSQLから読み、
 
 ## Design
 AWSのData pipelineを用いて使えるシンプルなものを作りたい。
-- SQLと設定を元にスクリプトを読みエクセルファイルを作成してS3に保存する
-- 全てのファイルが作成されていることを確認して、ダウンロードしてzipに固め、固めたファイルをs3に上げる
+- SQLと設定を元にスクリプトを読みエクセルファイルを作成してローカルに保存する
+- 全てのファイルをzipに固め、ローカルに保存する
 - zipを取り出し、SESで送信する
 
 ## Usage
-    ./aws-sql-reporter retrieve [sqlファイルパス]
-    ./aws-sql-reporter compression
-    ./aws-sql-reporter send
+    sql-reporter retrieve
+    sql-reporter compression
+    sql-reporter send (not yet created)
+    sql-reporter all
+    sql-reporter help
