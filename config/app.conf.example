@@ -3,3 +3,9 @@ hostname=
 user=
 password=
 database=
+
+[mail]
+sender=
+recipent=
+aws_region=
+subject=

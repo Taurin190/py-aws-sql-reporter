@@ -5,9 +5,11 @@ import bin.usage as u
 from bin.retrieve import Retriever
 from bin.compress import Compress
 from bin.sender import Sender
+import logging.config
 
 
 def main(args):
+    logging.config.fileConfig('config/logger.ini')
     config = configparser.ConfigParser()
     config.read("./config/app.conf")
     if len(args) < 2:
