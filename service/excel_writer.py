@@ -1,6 +1,7 @@
 import openpyxl
 import re
 import datetime
+import logging
 import config.format as f
 
 
@@ -12,13 +13,18 @@ class ExcelWriter:
 
     @staticmethod
     def create_sheet(name):
+        logger = logging.getLogger(__name__)
+        logger.debug("Start create_sheet function with {} file name".format(name))
         wb = openpyxl.Workbook()
         if not name.endswith(".xlsx"):
             name += ".xlsx"
         wb.save(name)
+        logger.debug("Created {} file".format(name))
 
     @staticmethod
     def create_sheet_with_result(name, header, result):
+        logger = logging.getLogger(__name__)
+        logger.debug("Start create_sheet_with_result function with {} file name".format(name))
         wb = openpyxl.Workbook()
         sheet_names = wb.get_sheet_names()
         ws = wb.get_sheet_by_name(sheet_names[0])
@@ -30,6 +36,7 @@ class ExcelWriter:
             for j in range(len(result[0])):
                 ws.cell(column=j+1, row=i+2).value = ExcelWriter._illegal_char_remover(result[i][j])
         wb.save(name)
+        logger.debug("Created {} file".format(name))
 
     @staticmethod
     def _illegal_char_remover(data):

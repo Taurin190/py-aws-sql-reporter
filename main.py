@@ -13,6 +13,7 @@ def main(args):
     config = configparser.ConfigParser()
     config.read("./config/app.conf")
     if len(args) < 2:
+        logging.error("no argument")
         u.usage()
         exit(1)
     if args[1] == 'retrieve':
@@ -32,6 +33,7 @@ def main(args):
         logging.debug("command help executed")
         u.usage('long')
     else:
+        logging.error("argument {} does't exist".format(args[1]))
         u.usage()
         exit(1)
 
