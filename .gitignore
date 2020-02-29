@@ -143,3 +143,7 @@ sql/*.sql
 
 # actual mail body
 config/mail.py
+
+# log directory
+log/*
+!log/.gitkeep
