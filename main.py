@@ -16,15 +16,20 @@ def main(args):
         u.usage()
         exit(1)
     if args[1] == 'retrieve':
+        logging.debug("command retrieve executed")
         Retriever(config).get_all()
     elif args[1] == 'compress':
+        logging.debug("command compress executed")
         Compress(config).exec()
     elif args[1] == 'send':
+        logging.debug("command send executed")
         Sender(config['mail']).send()
     elif args[1] == 'all':
+        logging.debug("command all executed")
         Retriever(config).get_all()
         Compress(config).exec()
     elif args[1] == '--help' or args[1] == 'help':
+        logging.debug("command help executed")
         u.usage('long')
     else:
         u.usage()
