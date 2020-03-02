@@ -18,7 +18,17 @@ def main(args):
         exit(1)
     if args[1] == 'retrieve':
         logging.debug("command retrieve executed")
-        Retriever(config).get_all()
+        if len(args) == 2:
+            logging.debug("retrieve all")
+            Retriever(config).get_all()
+        elif len(args) == 3 and args[2] == 'all':
+            logging.debug("retrieve all")
+            Retriever(config).get_all()
+        elif len(args) == 3 and args[2].endswith(".sql"):
+            Retriever(config).get(args[2])
+        else:
+            logging.error("invalid arguments for retrieve function: {}".format(args[2:]))
+            u.usage('retrieve')
     elif args[1] == 'compress':
         logging.debug("command compress executed")
         Compress(config).exec()

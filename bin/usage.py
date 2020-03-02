@@ -4,6 +4,8 @@ def usage(type='short'):
         _usage_short()
     elif type == 'long':
         _usage_long()
+    elif type == 'retrieve':
+        _usage_retrieve()
     else:
         _usage_short()
 
@@ -24,4 +26,13 @@ def _usage_long():
         "retrieve   Get results of queries from database and make xlsx files\n"
         "compress   Compress all directories to zip format under tmp directory\n"
         "help       Show detail of usage\n"
+    )
+
+
+def _usage_retrieve():
+    _usage_short()
+    print(
+        "\n"
+        "retrieve command:\n"
+        "usage: sql-reporter retrieve (all, [sql file name])\n"
     )
