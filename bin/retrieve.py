@@ -10,6 +10,10 @@ import config.format as f
 
 class Retriever:
     def __init__(self, config=None):
+        self.logger = logging.getLogger(__name__)
+        if 'database' not in config.keys():
+            self.logger.error("database config not found")
+            exit(1)
         self.sql_handler = SQLHandler(config)
         self.db = MySQL(config['database'])
         dt = datetime.datetime.now()
