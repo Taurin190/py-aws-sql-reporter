@@ -1,6 +1,8 @@
 import os
 
 
+# 指定したディレクトリのファイルを管理する
+# ファイル名の取得、ファイル読み出し、ファイルの保存
 class FileManager:
 
     def __init__(self, config=None):

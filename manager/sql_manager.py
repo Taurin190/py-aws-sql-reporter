@@ -1,7 +1,8 @@
 import os
 
 
-class SQLHandler:
+# 指定したディレクトリのSQLファイルの管理する
+class SQLManager:
     def __init__(self, config=None):
         self.sql_path = "./sql"
         if config and "sql_path" in config.keys():

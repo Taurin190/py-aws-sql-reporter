@@ -8,7 +8,7 @@ class TestMySQL(TestCase):
             "hostname": "127.0.0.1",
             "user": "root",
             "password": "password",
-            "database": "forge",
+            "gateway": "forge",
         }
         self.driver = MySQL(config)
 

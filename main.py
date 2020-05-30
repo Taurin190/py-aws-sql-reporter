@@ -4,7 +4,6 @@ import configparser
 import bin.usage as u
 from bin.retrieve import Retriever
 from bin.compress import Compress
-from bin.sender import Sender
 import logging.config
 
 
@@ -32,9 +31,6 @@ def main(args):
     elif args[1] == 'compress':
         logging.debug("command compress executed")
         Compress(config).exec()
-    elif args[1] == 'send':
-        logging.debug("command send executed")
-        Sender(config['mail']).send()
     elif args[1] == 'all':
         logging.debug("command all executed")
         Retriever(config).get_all()

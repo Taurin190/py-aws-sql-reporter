@@ -1,4 +1,4 @@
-from database.db import DB
+from gateway.db import DB
 import MySQLdb
 
 
@@ -8,7 +8,7 @@ class MySQL(DB):
             host=config['hostname'],
             user=config['user'],
             passwd=config['password'],
-            db=config['database'])
+            db=config['gateway'])
         self.cursor = self.connection.cursor()
 
     def __del__(self):

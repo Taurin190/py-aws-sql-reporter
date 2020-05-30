@@ -1,6 +1,6 @@
 import os
 import shutil
-from service.file_manager import FileManager
+from manager.file_manager import FileManager
 
 
 class ZipCompress:
@@ -10,6 +10,7 @@ class ZipCompress:
             self.tmp_path = config["tmp_path"]
 
     def compress_in_tmp_directory(self):
+        # ToDo: FileManagerに依存しない形にしたい
         files = FileManager.get_all_file_list(self.tmp_path)
         directory_list = self._get_all_directories(self.tmp_path, files)
 

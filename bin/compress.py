@@ -1,5 +1,5 @@
 import logging
-from service.zip_compress import ZipCompress
+from gateway.zip_compress import ZipCompress
 
 
 class Compress:

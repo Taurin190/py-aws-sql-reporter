@@ -23,7 +23,7 @@ def _usage_long():
         "These are sql-reporter commands used in various usage:\n"
         "\n"
         "all        Execute all commands (retrieve, compress)\n"
-        "retrieve   Get results of queries from database and make xlsx files\n"
+        "retrieve   Get results of queries from gateway and make xlsx files\n"
         "compress   Compress all directories to zip format under tmp directory\n"
         "help       Show detail of usage\n"
     )
