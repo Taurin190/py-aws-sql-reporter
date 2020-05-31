@@ -19,6 +19,7 @@ AWSのData pipelineを用いて使えるシンプルなものを作りたい。
   - binではオプション等を読み必要なserviceのコマンドを使う
   - serviceは何をするかというのが分かるメソッドにする
   - databaseやexcel、S3を触る部分はgatewayというまとまりにする
+- [x] Python 2系のライブラリに依存していたので修正したい。
    
 ## Usage
     sql-reporter retrieve

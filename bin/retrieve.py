@@ -1,9 +1,9 @@
 import os
 import datetime
 import logging
-from service.sql_manager import SQLManager
+from manager.sql_manager import SQLManager
 from gateway.mysql import MySQL
-from service.file_manager import FileManager
+from manager.file_manager import FileManager
 from gateway.excel_writer import ExcelWriter
 import config.format as f
 
@@ -11,11 +11,11 @@ import config.format as f
 class Retriever:
     def __init__(self, config=None):
         self.logger = logging.getLogger(__name__)
-        if 'gateway' not in config.keys():
+        if 'database' not in config.keys():
             self.logger.error("gateway config not found")
             exit(1)
         self.sql_handler = SQLManager(config)
-        self.db = MySQL(config['gateway'])
+        self.db = MySQL(config['database'])
         dt = datetime.datetime.now()
         self.directory_name = dt.strftime(f.OUTPUT_DIRECTORY_DATE)
         os.makedirs("./tmp/" + self.directory_name)
