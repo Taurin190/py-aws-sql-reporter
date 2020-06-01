@@ -4,6 +4,7 @@ import configparser
 import bin.usage as u
 from bin.retrieve import Retriever
 from bin.compress import Compress
+from bin.get_sql import GetSql
 import logging.config
 
 
@@ -28,6 +29,10 @@ def main(args):
         else:
             logging.error("invalid arguments for retrieve function: {}".format(args[2:]))
             u.usage('retrieve')
+    elif args[1] == 'get_sql':
+        logging.debug("command get_sql executed")
+        sql_files = GetSql(config).get_all_sql_in_directory('')
+        print(sql_files)
     elif args[1] == 'compress':
         logging.debug("command compress executed")
         Compress(config).exec()
