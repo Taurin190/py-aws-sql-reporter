@@ -24,6 +24,6 @@ AWSのData pipelineを用いて使えるシンプルなものを作りたい。
 ## Usage
     sql-reporter retrieve
     sql-reporter compression
-    sql-reporter send (not yet created)
+    sql-reporter upload (not yet created)
     sql-reporter all
     sql-reporter help

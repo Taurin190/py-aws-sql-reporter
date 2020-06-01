@@ -7,6 +7,13 @@ from manager.file_manager import FileManager
 from gateway.excel_writer import ExcelWriter
 import config.format as f
 
+"""
+指定されたSQLを元にデータを取り出しExcelファイルをローカルに保存する
+ input : 保存するファイルのパス
+ output: ローカルにExcelファイルを保存
+ output: 保存したファイル名
+"""
+
 
 class Retriever:
     def __init__(self, config=None):
