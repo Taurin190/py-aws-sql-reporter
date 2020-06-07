@@ -1,7 +1,5 @@
 import logging
-from manager.sql_manager import SQLManager
 from manager.sql_manager import get_all_sql_files, get_all_sql_in_directory
-import config.format as f
 
 """
 対象のディレクトリからSQL文を取得する
@@ -14,7 +12,6 @@ class GetSql:
     def __init__(self, config=None):
         self.logger = logging.getLogger(__name__)
         self.config = config
-        self.sql_handler = SQLManager(config)
 
     def get_all_sql_in_directory(self, directory):
         sql_path = "./sql"

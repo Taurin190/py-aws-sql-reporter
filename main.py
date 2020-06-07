@@ -20,12 +20,15 @@ def main(args):
         logging.debug("command retrieve executed")
         if len(args) == 2:
             logging.debug("retrieve all")
-            Retriever(config).get_all()
-        elif len(args) == 3 and args[2] == 'all':
-            logging.debug("retrieve all")
-            Retriever(config).get_all()
-        elif len(args) == 3 and args[2].endswith(".sql"):
-            Retriever(config).get(args[2])
+            sql_files = GetSql(config).get_all_sql_in_directory('')
+            Retriever(config).retrieve_from_sql_list(sql_files)
+        elif len(args) == 3:
+            if args[2] == 'all':
+                logging.debug("retrieve all")
+                sql_files = GetSql(config).get_all_sql_in_directory('')
+                Retriever(config).retrieve_from_sql_list(sql_files)
+            elif args[2].endswith(".sql"):
+                Retriever(config).get(args[2])
         else:
             logging.error("invalid arguments for retrieve function: {}".format(args[2:]))
             u.usage('retrieve')
@@ -38,7 +41,8 @@ def main(args):
         Compress(config).exec()
     elif args[1] == 'all':
         logging.debug("command all executed")
-        Retriever(config).get_all()
+        sql_files = GetSql(config).get_all_sql_in_directory('')
+        Retriever(config).retrieve_from_sql_list(sql_files)
         Compress(config).exec()
     elif args[1] == '--help' or args[1] == 'help':
         logging.debug("command help executed")
