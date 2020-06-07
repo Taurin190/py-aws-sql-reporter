@@ -28,7 +28,8 @@ def main(args):
                 sql_files = GetSql(config).get_all_sql_in_directory('')
                 Retriever(config).retrieve_from_sql_list(sql_files)
             elif args[2].endswith(".sql"):
-                Retriever(config).get(args[2])
+                sql = GetSql(config).get_sql_from_path(args[2])
+                Retriever(config).retrieve_from_sql(args[2][:-4], sql)
         else:
             logging.error("invalid arguments for retrieve function: {}".format(args[2:]))
             u.usage('retrieve')
