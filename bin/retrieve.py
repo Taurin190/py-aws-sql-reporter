@@ -23,6 +23,7 @@ class Retriever:
         self.db = MySQL(config['database'])
         dt = datetime.datetime.now()
         self.directory_name = dt.strftime(f.OUTPUT_DIRECTORY_DATE)
+        self.postfix = '_' + dt.strftime(f.OUTPUT_DIRECTORY_DATE)
         os.makedirs("./tmp/" + self.directory_name)
         self.logger = logging.getLogger(__name__)
 
@@ -34,7 +35,7 @@ class Retriever:
 
     def retrieve_from_sql_list(self, sql_list):
         for name, sql in sql_list.items():
-            self.retrieve_from_sql(self.directory_name + '/' + name, sql)
+            self.retrieve_from_sql(self.directory_name + '/' + name + self.postfix, sql)
 
     def retrieve_from_sql(self, name, sql):
         self.logger.debug("SQL: {}".format(sql))
