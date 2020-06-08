@@ -1,4 +1,4 @@
-# py-aws-reporter
+# py-sql-reporter
 MySQLのデータを与えられたSQLから読み、
 エクセル形式にした複数のファイルをzipファイルでまとめて
 S3にアップロードするスクリプト。
