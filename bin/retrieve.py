@@ -2,7 +2,7 @@ import os
 import datetime
 import logging
 from gateway.mysql import MySQL
-from manager.file_manager import FileManager
+from manager.file_manager import get_all_file_list
 from gateway.excel_writer import ExcelWriter
 import config.format as f
 
@@ -28,7 +28,7 @@ class Retriever:
 
     def __del__(self):
         # delete empty directory
-        file_list = FileManager.get_all_file_list("./tmp/" + self.directory_name)
+        file_list = get_all_file_list("./tmp/" + self.directory_name)
         if len(file_list) == 0:
             os.rmdir("./tmp/" + self.directory_name)
 

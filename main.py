@@ -39,12 +39,12 @@ def main(args):
         print(sql_files)
     elif args[1] == 'compress':
         logging.debug("command compress executed")
-        Compress(config).exec()
+        Compress(config).exec('./tmp')
     elif args[1] == 'all':
         logging.debug("command all executed")
         sql_files = GetSql(config).get_all_sql_in_directory('')
         Retriever(config).retrieve_from_sql_list(sql_files)
-        Compress(config).exec()
+        Compress(config).exec('./tmp')
     elif args[1] == '--help' or args[1] == 'help':
         logging.debug("command help executed")
         u.usage('long')

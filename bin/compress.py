@@ -13,6 +13,6 @@ class Compress:
         self.zip_compress = ZipCompress(config)
         self.logger = logging.getLogger(__name__)
 
-    def exec(self):
+    def exec(self, directory):
         self.logger.debug("Compress function start executing")
-        self.zip_compress.compress_in_tmp_directory()
+        self.zip_compress.compress_in_directory(directory)

@@ -1,6 +1,5 @@
-import os
 import shutil
-from manager.file_manager import FileManager
+from manager.file_manager import get_all_file_list, get_all_directories
 
 
 class ZipCompress:
@@ -9,18 +8,9 @@ class ZipCompress:
         if config and "tmp_path" in config.keys():
             self.tmp_path = config["tmp_path"]
 
-    def compress_in_tmp_directory(self):
-        # ToDo: FileManagerに依存しない形にしたい
-        files = FileManager.get_all_file_list(self.tmp_path)
-        directory_list = self._get_all_directories(self.tmp_path, files)
-
+    def compress_in_directory(self, directory_name):
+        files = get_all_file_list(directory_name)
+        directory_list = get_all_directories(directory_name, files)
         for directory in directory_list:
-            shutil.make_archive(self.tmp_path + '/' + directory, 'zip', root_dir=self.tmp_path + '/' + directory)
+            shutil.make_archive(self.tmp_path + '/' + directory, 'zip', root_dir=directory_name + '/' + directory)
 
-    @staticmethod
-    def _get_all_directories(directory_path, files):
-        return list(filter(lambda x: os.path.isdir(directory_path + "/" + x), files))
-
-    @staticmethod
-    def _get_all_zip_files(files):
-        return list(filter(lambda x: x.endswith(".zip"), files))
