@@ -34,7 +34,7 @@ class Retriever:
 
     def retrieve_from_sql_list(self, sql_list):
         for name, sql in sql_list.items():
-            self.retrieve_from_sql(name, sql)
+            self.retrieve_from_sql(self.directory_name + '/' + name, sql)
 
     def retrieve_from_sql(self, name, sql):
         self.logger.debug("SQL: {}".format(sql))
@@ -42,4 +42,5 @@ class Retriever:
         self.logger.debug("Result Header: {}".format(header))
         self.logger.debug("Result Body: {}".format(query_result))
         self.logger.debug("Start creating file {}".format(name))
-        ExcelWriter.create_sheet_with_result(name, header, query_result)
+        excel_writer = ExcelWriter()
+        excel_writer.create_sheet_with_result(name, header, query_result)

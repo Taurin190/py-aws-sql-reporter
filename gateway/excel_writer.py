@@ -11,18 +11,7 @@ class ExcelWriter:
         if config and "tmp_path" in config.keys():
             self.tmp_path = config["tmp_path"]
 
-    @staticmethod
-    def create_sheet(name):
-        logger = logging.getLogger(__name__)
-        logger.debug("Start create_sheet function with {} file name".format(name))
-        wb = openpyxl.Workbook()
-        if not name.endswith(".xlsx"):
-            name += ".xlsx"
-        wb.save(name)
-        logger.debug("Created {} file".format(name))
-
-    @staticmethod
-    def create_sheet_with_result(name, header, result):
+    def create_sheet_with_result(self, name, header, result):
         logger = logging.getLogger(__name__)
         logger.debug("Start create_sheet_with_result function with {} file name".format(name))
         wb = openpyxl.Workbook()
@@ -35,7 +24,7 @@ class ExcelWriter:
         for i in range(len(result)):
             for j in range(len(result[0])):
                 ws.cell(column=j+1, row=i+2).value = ExcelWriter._illegal_char_remover(result[i][j])
-        wb.save(name)
+        wb.save(self.tmp_path + '/' + name)
         logger.debug("Created {} file".format(name))
 
     @staticmethod

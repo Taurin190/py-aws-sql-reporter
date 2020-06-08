@@ -42,8 +42,8 @@ def main(args):
         Compress(config).exec('./tmp')
     elif args[1] == 'all':
         logging.debug("command all executed")
-        sql_files = GetSql(config).get_all_sql_in_directory('')
-        Retriever(config).retrieve_from_sql_list(sql_files)
+        sql_list = GetSql(config).get_all_sql_in_directory('')
+        Retriever(config).retrieve_from_sql_list(sql_list)
         Compress(config).exec('./tmp')
     elif args[1] == '--help' or args[1] == 'help':
         logging.debug("command help executed")

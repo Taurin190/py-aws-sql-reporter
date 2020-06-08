@@ -16,9 +16,11 @@ S3にアップロードするスクリプト。
 - 設計を変えたい
   - binではオプション等を読み必要なserviceのコマンドを使う
   - serviceは何をするかというのが分かるメソッドにする
+    - gatewayには外部サービスと連携するクラス群
+    - mangerは対象を扱うUtil的なクラス群
   - databaseやexcel、S3を触る部分はgatewayというまとまりにする
 - [x] Python 2系のライブラリに依存していたので修正したい。
-   
+
 ## Usage
     sql-reporter retrieve
     sql-reporter compression
